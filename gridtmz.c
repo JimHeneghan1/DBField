@@ -31,7 +31,8 @@ void gridInit(Grid *g) {
       Cezh(mm, nn) = Cdtds * imp0;
     }
 /*Set coefficients for Dielectric square*/ 
-/*  for (mm = 200; mm < 1390; mm++) {
+/*
+  for (mm = 200; mm < 1390; mm++) {
                 for (nn = 0; nn < SizeY; nn++) {
 			Ceze(mm, nn) = 1.0;
       			Cezh(mm, nn) = (Cdtds*imp0)/4.0;
@@ -43,11 +44,13 @@ void gridInit(Grid *g) {
                         Cezh(mm, nn) = (Cdtds*imp0)/2.0;
                 }
    }
+*/
+/* Setting permitivity to be 1 for all space*/
    for (mm = 0; mm < SizeX; mm++)
    	for (nn = 0; nn < SizeY; nn++) {
 		EpsRzz(mm,nn) = 1.0;
    }
-*/  
+  
 /* set magnetic-field update coefficients */
   for (mm = 0; mm < SizeX; mm++)
     for (nn = 0; nn < SizeY - 1; nn++) {

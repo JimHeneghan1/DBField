@@ -62,9 +62,9 @@ void abc(Grid *g) /*@\label{abctmzD}@*/
   }
   /* ABC at right side of grid */
   for (nn = 0; nn < SizeY; nn++) {
-    Ez(SizeX - 1, nn) = coef0 * (Ez(SizeX - 3, nn) + EzRight(0, 1, nn))
+    Dz(SizeX - 1, nn) = coef0 * (Dz(SizeX - 3, nn) + EzRight(0, 1, nn))
      + coef1 * (EzRight(0, 0, nn) + EzRight(2, 0, nn)
-                - Ez(SizeX - 2, nn) - EzRight(1, 1, nn))
+                - Dz(SizeX - 2, nn) - EzRight(1, 1, nn))
      + coef2 * EzRight(1, 0, nn) - EzRight(2, 1, nn);
   
     /* memorize old fields */

@@ -63,7 +63,7 @@ void snapshot2d(Grid *g) {
 		/* write remaining data*/
 		for(nn = SizeY -2; nn >= 0; nn--)
 			for(mm = 0; mm <= SizeX; mm++){
-				temp = (float)Ez(mm,nn); //store data as a float
+				temp = (float)Dz(mm,nn); //store data as a float
 				fprintf(out, "%f  \n", temp);
 				//fwrite(&temp, sizeof(float), 1, out); // write the float
 			}
