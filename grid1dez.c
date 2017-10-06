@@ -19,7 +19,9 @@ void gridInit1d(Grid *g){
 	ALLOC_1D (g-> ceze,	SizeX - 1, double);
 	ALLOC_1D (g->cezh,	SizeX - 1, double);
 	ALLOC_1D (g->dz,        SizeX - 1, double);
-        ALLOC_1D (g-> epsR,     SizeX - 1, double);
+        ALLOC_1D (g->epsR,      SizeX - 1, double);
+	ALLOC_1D (g->by,        SizeX - 1, double);
+	ALLOC_1D (g->muR,       SizeX - 1, double);
 	/* set the E and H field update coefficients */
 
 	for (mm = 0; mm < SizeX - 1; mm++){
@@ -29,6 +31,7 @@ void gridInit1d(Grid *g){
 			Chyh1(mm) = 1.0;
 			Chye1(mm) = Cdtds / imp0;
 			EpsR1(mm) = 1.0;
+			MuR1(mm) = 1.0;
 		} else {
 			depthInLayer = mm - (SizeX - 1- NLOSS) + 0.5;
 			lossFactor = MAX_LOSS * pow(depthInLayer / NLOSS, 2);
@@ -38,6 +41,8 @@ void gridInit1d(Grid *g){
 			lossFactor = MAX_LOSS * pow(depthInLayer / NLOSS, 2);
 			Chyh1(mm) = (1.0 - lossFactor) / (1.0 + lossFactor);
 			Chye1(mm) = Cdtds / imp0 / (1.0 + lossFactor);
+			EpsR1(mm) = 1.0;
+                        MuR1(mm) = 1.0;
 		}
 	}
 	return;

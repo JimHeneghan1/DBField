@@ -40,7 +40,7 @@ void tfsfUpdate(Grid *g) {
   // correct Hy along left edge
   mm = firstX - 1;
   for (nn = 0; nn < SizeY; nn++)
-    Hy(mm, nn) -= Chye(mm, nn) * Dz1G(g1, mm + 1);
+    By(mm, nn) -= Chye(mm, nn) * Dz1G(g1, mm + 1);
   
   // correct Hy along right edge
   /*
@@ -59,6 +59,7 @@ void tfsfUpdate(Grid *g) {
   for (mm = firstX; mm <= lastX; mm++)
     Hx(mm, nn) -= Chxe(mm, nn) * Ez1G(g1, mm);
 */
+  updateB2d(g1);
   updateH2d(g1);    // update 1D magnetic field  /*@\label{tfsftmzF}@*/
   updateD2d(g1); 
   updateE2d(g1);    // update 1D electric field

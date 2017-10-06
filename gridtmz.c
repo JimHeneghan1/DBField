@@ -23,6 +23,11 @@ void gridInit(Grid *g) {
   ALLOC_2D(g->curlH, SizeX, SizeY , double);
   ALLOC_2D(g->dz,   SizeX, SizeY, double);
   ALLOC_2D(g->epsRzz, SizeX, SizeY, double);
+  ALLOC_2D(g->bx,   SizeX, SizeY - 1, double); 
+  ALLOC_2D(g->by,   SizeX - 1, SizeY, double);
+  ALLOC_2D(g->muRxx, SizeX, SizeY - 1, double);
+  ALLOC_2D(g->muRyy, SizeX - 1, SizeY, double);
+
 
   /* set electric-field update coefficients */
   for (mm = 0; mm < SizeX; mm++)
@@ -63,6 +68,15 @@ void gridInit(Grid *g) {
       Chyh(mm, nn) = 1.0;
       Chye(mm, nn) = Cdtds / imp0;
     }
+  for (mm = 0; mm < SizeX - 1; mm++)
+    	for (nn = 0; nn < SizeY; nn++) {
+  		MuRyy(mm, nn) = 1.0;
+  }
+
+  for (mm = 0; mm < SizeX; mm++)
+	for (nn = 0; nn < SizeY - 1; nn++) {
+		MuRxx(mm, nn) = 1.0;
+	}
 
   return;
 }
