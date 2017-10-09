@@ -3,7 +3,7 @@
 #include <math.h>
 
 void gridInit(Grid *g) {
-  double imp0 = 377.0;
+//  double imp0 = 377.0;
   int mm, nn;
   Type = tmZGrid;                          /*@ \label{gridtmzA} @*/
   SizeX = 1001;             // x size of domain
@@ -33,7 +33,7 @@ void gridInit(Grid *g) {
   for (mm = 0; mm < SizeX; mm++)
     for (nn = 0; nn < SizeY; nn++) {
       Ceze(mm, nn) = 1.0;
-      Cezh(mm, nn) = Cdtds * imp0;
+      Cezh(mm, nn) = Cdtds;
     }
 /*Set coefficients for Dielectric square*/ 
 /*
@@ -60,13 +60,13 @@ void gridInit(Grid *g) {
   for (mm = 0; mm < SizeX; mm++)
     for (nn = 0; nn < SizeY - 1; nn++) {
       Chxh(mm, nn) = 1.0;
-      Chxe(mm, nn) = Cdtds / imp0;
+      Chxe(mm, nn) = Cdtds;
     }
 
   for (mm = 0; mm < SizeX - 1; mm++)
     for (nn = 0; nn < SizeY; nn++) {
       Chyh(mm, nn) = 1.0;
-      Chye(mm, nn) = Cdtds / imp0;
+      Chye(mm, nn) = Cdtds;
     }
   for (mm = 0; mm < SizeX - 1; mm++)
     	for (nn = 0; nn < SizeY; nn++) {

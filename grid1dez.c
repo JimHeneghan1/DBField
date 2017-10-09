@@ -27,9 +27,9 @@ void gridInit1d(Grid *g){
 	for (mm = 0; mm < SizeX - 1; mm++){
 		if (mm < SizeX - 1 - NLOSS){
 			Ceze1(mm) = 1.0;
-			Cezh1(mm) = Cdtds * imp0;
+			Cezh1(mm) = Cdtds;
 			Chyh1(mm) = 1.0;
-			Chye1(mm) = Cdtds / imp0;
+			Chye1(mm) = Cdtds;
 			EpsR1(mm) = 1.0;
 			MuR1(mm) = 1.0;
 		} else {

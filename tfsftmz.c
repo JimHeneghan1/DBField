@@ -40,7 +40,7 @@ void tfsfUpdate(Grid *g) {
   // correct Hy along left edge
   mm = firstX - 1;
   for (nn = 0; nn < SizeY; nn++)
-    By(mm, nn) -= Chye(mm, nn) * Dz1G(g1, mm + 1);
+   By(mm, nn) -= Chye(mm, nn) * Ez1G(g1, mm + 1);
   
   // correct Hy along right edge
   /*
