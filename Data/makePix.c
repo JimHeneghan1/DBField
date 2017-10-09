@@ -11,7 +11,7 @@
 #include <math.h>
 
 // Image and array constants
-#define IMAX 2002 
+#define IMAX 1002 
 #define JMAX 80
 #define CMAX 65535
 #define MAX (IMAX*JMAX)
@@ -34,7 +34,7 @@ int main()
 
   // I  read only one file here so I have changed the loop
   for(j = 1; j<=FMAX; j++){
-    sprintf(filename, "Test1.%d.dat", j);
+    sprintf(filename, "Test4.%d.dat", j);
     printf("%s\n", filename);
     source = fopen(filename, "r");
     i = 0;
@@ -55,7 +55,7 @@ int main()
   printf("---> %f\n", MaxVal);
 
  for(j = 1; j<=FMAX; j++){
-   sprintf(filename, "Test1.%d.dat", j);
+   sprintf(filename, "Test4.%d.dat", j);
    source = fopen(filename, "r");
    // Normalize to CMAX
    i = 0;
@@ -82,7 +82,7 @@ int main()
    fclose(source);
 
    // Output the 16 bit portable gray map file
-   sprintf(filenamedest, "Test1/Test1.%d.pgm", j);
+   sprintf(filenamedest, "Test4/Test4.%d.pgm", j);
    dest = fopen(filenamedest, "wb");
 
    // Print the pgm file header

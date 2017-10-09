@@ -26,16 +26,19 @@ void updateB2d(Grid *g) {
 
 void updateH2d(Grid *g) {
   int mm, nn;
-  for (mm = 0; mm < SizeX - 1; mm++){
-	Hy1(mm) = By1(mm)/MuR1(mm);
-  }
-  for (mm = 0; mm < SizeX; mm++) 
-      for (nn = 0; nn < SizeY - 1; nn++){
-  	Hx(mm,nn) = Bx(mm,nn)/MuRxx(mm,nn);
-  }
-  for (mm = 0; mm < SizeX - 1; mm++)
-       for (nn = 0; nn < SizeY; nn++){
-	 Hy(mm,nn) = By(mm,nn)/MuRyy(mm,nn);	
+  if (Type == oneDGrid) { 
+     for (mm = 0; mm < SizeX - 1; mm++){
+   	   Hy1(mm) = By1(mm)/MuR1(mm);
+     }
+  } else{
+     for (mm = 0; mm < SizeX; mm++) 
+        for (nn = 0; nn < SizeY - 1; nn++){
+           Hx(mm,nn) = Bx(mm,nn)/MuRxx(mm,nn);
+     }
+     for (mm = 0; mm < SizeX - 1; mm++)
+        for (nn = 0; nn < SizeY; nn++){
+	    Hy(mm,nn) = By(mm,nn)/MuRyy(mm,nn);	
+     }  
   }
   return;
 }
