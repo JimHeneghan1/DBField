@@ -1,1 +1,0 @@
-set the courant number to 1 but not in ricker
