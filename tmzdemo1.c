@@ -24,7 +24,7 @@ int main()
     tfsfUpdate(g);          //apply TFSF boundary
     updateD2d(g);     // update electric field
     updateE2d(g);
-    //Ez(30, 30) = ezInc(Time, 0.0); // add a source /*@ \label{tmzdemo1A} @*/
+    Dz(30, 30) = ezInc(Time, 0.0); // add a source /*@ \label{tmzdemo1A} @*/
     abc(g);                 //apply ABC     
     Transmission(g, Time);
     snapshot2d(g);    // take a snapshot (if appropriate)
